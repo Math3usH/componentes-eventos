@@ -1,25 +1,30 @@
 <script setup>
-defineProps(['produtos']);
+defineProps(['perfil']);
 </script>
 
 <template>
-  <table>
-    <thead>
+  <table>   
+   <thead>
       <tr>
-        <th>Id</th>
         <th>Nome</th>
-        <th>Preço</th>
-        <th>Ações</th>
+        <th>Email</th>
+        <th>Senha</th>
+        <th>Data de nascimento</th>
+        <th>Cidade</th>
+        <th>Estado</th>
+        <th>Estado civil</th>
+        <th>Excluir</th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="produto in produtos" :key="produto.id">
-        <td>{{ produto.id }}</td>
-        <td>{{ produto.nome }}</td>
-        <td>R$ {{ produto.preco }}</td>
-        <td>
-          <i class="mdi mdi-delete" @click="$emit('excluir', produto.id)" />
-        </td>
+      <tr v-for="(perfil, index) in perfil" :key="index">
+        <td>{{ perfil.nome }}</td>
+        <td>{{ perfil.email }}</td>
+        <td>{{ perfil.senha }}</td>
+        <td>{{ perfil.dataNascimento }}</td>
+        <td>{{ perfil.estado }}</td>
+        <td>{{ perfil.cidade }}</td>
+        <td>{{ perfil.estadoCivil }}</td>
 
       </tr>
     </tbody>
